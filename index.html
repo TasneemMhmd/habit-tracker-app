@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
     <title>Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <h1>Habit Tracker App</h1>
-    <p>Small steps. Big changes. 🌱</p>
-    <ul id="habits-list"></ul>
-    <div id="summary">
-        <p id="summary-text"></p>
-        <div id="progress-container">
-            <div id="progress-bar"></div>
+    <div class="container">
+        <h1>Habit Tracker</h1>
+        <p class="subtitle">Small steps. Big changes. 🌱</p>
+        
+        <ul id="habits-list"></ul>
+        
+        <button id="add-habit">➕ Add New Habit</button>
+        
+        <div id="summary">
+            <p id="summary-text"></p>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+        
+        <form id="habits-form">
+            <input type="text" id="habit-name" placeholder="Enter your new habit..." />
+            <button type="submit">Add Habit</button>
+        </form>
+    </div>
+
+    <!-- Remove Habit Alert -->
+    <div class="alert-overlay" id="remove-alert-overlay">
+        <div class="alert-modal">
+            <div class="alert-icon">🗑️</div>
+            <div class="alert-title">Remove Habit</div>
+            <div class="alert-message">Are you sure you want to remove this habit? This action cannot be undone.</div>
+            <div class="alert-buttons">
+                <button class="alert-btn alert-btn-cancel" id="remove-alert-cancel">Cancel</button>
+                <button class="alert-btn alert-btn-confirm" id="remove-alert-confirm">Remove</button>
+            </div>
         </div>
     </div>
+
+    <!-- Empty Habit Alert -->
+    <div class="alert-overlay" id="empty-alert-overlay">
+        <div class="alert-modal">
+            <div class="alert-icon">📝</div>
+            <div class="alert-title">Empty Habit Name</div>
+            <div class="alert-message">Please enter a habit name before adding it to your list.</div>
+            <div class="alert-buttons">
+                <button class="alert-btn alert-btn-ok" id="empty-alert-ok">OK</button>
+            </div>
+        </div>
+    </div>
+
     <script src="main.js"></script>
 </body>
-
 </html>
