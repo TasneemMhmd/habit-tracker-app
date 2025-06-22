@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Habit Tracker</title>
+    <title>Enhanced Habit Tracker</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -11,18 +11,69 @@
     <div class="container">
         <h1>Habit Tracker</h1>
         <p class="subtitle">Small steps. Big changes. 🌱</p>
-        
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-value" id="total-habits">0</div>
+                <div class="stat-label">Total Habits</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="completed-habits">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="completion-rate">0%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search habits..." />
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <span>📋</span>All Habits
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    <span>✅</span>Completed
+                </button>
+                <button class="filter-btn" data-filter="pending">
+                    <span>⏳</span>Pending
+                </button>
+            </div>
+
+            <div class="sort-section">
+                <label class="sort-label">Sort by:</label>
+                <select id="sort-select">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="alphabetical">A-Z</option>
+                    <option value="reverse-alphabetical">Z-A</option>
+                    <option value="completed-first">Completed First</option>
+                    <option value="pending-first">Pending First</option>
+                </select>
+            </div>
+        </div>
+
         <ul id="habits-list"></ul>
-        
-        <button id="add-habit">➕ Add New Habit</button>
-        
+
+        <div class="action-buttons">
+            <button id="add-habit">➕ Add New Habit</button>
+            <button id="clear-completed">🗑️ Clear Completed</button>
+        </div>
+
         <div id="summary">
             <p id="summary-text"></p>
             <div id="progress-container">
                 <div id="progress-bar"></div>
             </div>
         </div>
-        
+
         <form id="habits-form">
             <input type="text" id="habit-name" placeholder="Enter your new habit..." />
             <button type="submit">Add Habit</button>
@@ -54,6 +105,19 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <!-- Clear Completed Alert -->
+    <div class="alert-overlay" id="clear-alert-overlay">
+        <div class="alert-modal">
+            <div class="alert-icon">🗑️</div>
+            <div class="alert-title">Clear Completed Habits</div>
+            <div class="alert-message">Are you sure you want to remove all completed habits? This action cannot be undone.</div>
+            <div class="alert-buttons">
+                <button class="alert-btn alert-btn-cancel" id="clear-alert-cancel">Cancel</button>
+                <button class="alert-btn alert-btn-confirm" id="clear-alert-confirm">Clear All</button>
+            </div>
+        </div>
+    </div>
+
+<script src="main.js"></script>
 </body>
 </html>
